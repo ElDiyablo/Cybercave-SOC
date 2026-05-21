@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started — Cybercave SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html" class="active">Getting Started</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="../ticketing/index.html">Ticketing</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+
+<div class="page-wrapper">
+
+  <p class="section-label" style="margin-top: 1rem;">// Getting Started</p>
+  <h1 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 0.5rem;">New Analyst Orientation</h1>
+  <p class="text-muted" style="font-size: 1rem; margin-bottom: 3rem; max-width: 640px;">
+    Everything you need to go from zero to first shift — what a SOC is, how to access our tools,
+    and where to learn more.
+  </p>
+
+  <section>
+    <p class="section-label">// 01 — Foundations</p>
+    <h2>What Is a SOC?</h2>
+    <p class="text-muted" style="max-width: 720px; margin-bottom: 1.5rem;">
+      A Security Operations Center (SOC) is a centralized team responsible for continuously monitoring,
+      detecting, analyzing, and responding to cybersecurity events across an organization's infrastructure.
+      SOC analysts are the people watching the screens — correlating alerts, hunting for threats,
+      and escalating incidents before they become breaches.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Core competency:</strong> A good SOC analyst isn't just reactive — they understand
+        attacker techniques, know what normal looks like, and can distinguish real threats from noise.
+        That judgment comes from study <em>and</em> hands-on practice.
+      </p>
+    </div>
+
+    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Foundational Reading</h3>
+    <p class="text-muted text-sm" style="margin-bottom: 1rem;">
+      These are the industry-standard references that define how professional SOCs are built and run.
+      Start with MITRE Part 0, then work through the others as your schedule allows.
+    </p>
+
+    <ul class="resource-list">
+      <li>
+        <span class="res-icon">📘</span>
+        <div>
+          <a href="https://www.mitre.org/publications/technical-papers/11-strategies-world-class-cybersecurity-operations-center" target="_blank">
+            MITRE — 11 Strategies for a World-Class SOC
+          </a>
+          <span class="res-desc">
+            Start with <strong>Part 0: Fundamentals</strong>. This is the definitive guide to SOC strategy,
+            written by practitioners. Covers mission, people, process, and technology across 11 evidence-backed strategies.
+            Free PDF also available on <a href="https://github.com/cyb3rxp/awesome-soc/blob/main/11-strategies-of-a-world-class-cybersecurity-operations-center.pdf" target="_blank">GitHub</a>.
+          </span>
+        </div>
+      </li>
+      <li>
+        <span class="res-icon">📗</span>
+        <div>
+          <a href="https://www.first.org/resources/guides/Factsheet_Building_a_SOC_start_small.pdf" target="_blank">
+            FIRST — Building a SOC: Start Small
+          </a>
+          <span class="res-desc">
+            A concise, practical guide from the Forum of Incident Response and Security Teams.
+            Ideal for understanding how to bootstrap a SOC from limited resources —
+            directly applicable to our university context.
+          </span>
+        </div>
+      </li>
+      <li>
+        <span class="res-icon">📙</span>
+        <div>
+          <a href="https://www.ncsc.gov.uk/collection/building-a-security-operations-centre" target="_blank">
+            NCSC (UK) — Building a Security Operations Centre
+          </a>
+          <span class="res-desc">
+            The UK National Cyber Security Centre's SOC guidance. Clear, actionable, and vendor-neutral.
+            Covers scope, detection capability, staffing models, and tooling choices.
+          </span>
+        </div>
+      </li>
+      <li>
+        <span class="res-icon">📕</span>
+        <div>
+          <a href="https://fr.scribd.com/document/732782046/Gartner-SOC-Model-Guide-2023" target="_blank">
+            Gartner — SOC Model Guide 2023
+          </a>
+          <span class="res-desc">
+            Industry analyst perspective on SOC maturity models, staffing tiers (L1/L2/L3),
+            and technology stack evolution. Useful for understanding how enterprise SOCs are structured.
+          </span>
+        </div>
+      </li>
+      <li>
+        <span class="res-icon">📊</span>
+        <div>
+          <a href="https://www.splunk.com/en_us/pdfs/gated/ebooks/state-of-security-2023.pdf" target="_blank">
+            Splunk — State of Security 2023
+          </a>
+          <span class="res-desc">
+            Annual survey of security practitioners on challenges, tooling, burnout, and emerging threats.
+            Gives you a realistic picture of what the security field looks like today.
+          </span>
+        </div>
+      </li>
+      <li>
+        <span class="res-icon">🔐</span>
+        <div>
+          <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/security-and-compliance/m365b-security-best-practices?view=o365-worldwide" target="_blank">
+            Microsoft — Secure Your Business with Microsoft 365
+          </a>
+          <span class="res-desc">
+            Best practices for M365 security configuration. Relevant because many organizations
+            (including universities) depend on M365 — understanding its security surface is useful context.
+          </span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 02 — Access</p>
+    <h2>Getting Into ELK via the Cyber Range</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem; max-width: 680px;">
+      All SOC work happens inside the campus cyber range. Follow these steps to get set up
+      before your first shift. Contact your instructor or SOC lead if you run into access issues.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Enroll in the Cyber Range</h4>
+          <p>Request access to the university cyber range through your course enrollment or
+          by contacting the SOC program coordinator. You'll receive credentials and VPN
+          configuration instructions by email.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Connect via VPN</h4>
+          <p>The cyber range environment is not accessible from the public internet.
+          Install and configure the provided VPN client, then connect to the range network
+          before attempting to reach any internal resources.</p>
+          <div class="terminal mt-2">
+            <span class="comment"># Connect to the range (example — use your actual endpoint)</span><br>
+            <span class="prompt">$</span> <span class="cmd">openvpn --config cyberrange.ovpn</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Open Kibana in Your Browser</h4>
+          <p>Once on the VPN, navigate to the Kibana URL provided by your SOC coordinator
+          (internal IP, port 5601 by default). Log in with your analyst credentials.</p>
+          <div class="terminal mt-2">
+            <span class="comment"># Kibana default address (confirm with your coordinator)</span><br>
+            <span class="prompt">$</span> <span class="cmd">http://&lt;range-ip&gt;:5601</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Verify Log Ingestion</h4>
+          <p>In Kibana, navigate to <strong>Discover</strong> and confirm you can see recent
+          log events from the Palo Alto firewall. If the index shows no data, check with
+          your SOC lead — ingestion may need to be verified.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Review the Shift Dashboard</h4>
+          <p>Load the SOC shift dashboard in Kibana. This is your primary working view —
+          it surfaces high-priority alerts, threat events, and traffic anomalies for
+          the current monitoring window.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 03 — ELK</p>
+    <h2>Basic ELK Navigation</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem; max-width: 680px;">
+      ELK (Elasticsearch, Logstash, Kibana) is our primary analyst interface. You'll spend most
+      of your shift time inside Kibana. The links below cover the core workflows you'll use.
+    </p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Discover</h3>
+        <p>Raw log search. Use KQL to filter events by IP, action, threat category, or time range. Your main triage surface.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.elastic.co/guide/en/kibana/current/discover.html" target="_blank">→ Elastic Discover Docs</a></p>
+      </div>
+      <div class="card">
+        <h3>Dashboards</h3>
+        <p>Pre-built and custom visualizations of your log data. Use the shift dashboard to get an at-a-glance view of threat volume.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.elastic.co/guide/en/kibana/current/dashboard.html" target="_blank">→ Elastic Dashboard Docs</a></p>
+      </div>
+      <div class="card">
+        <h3>KQL Reference</h3>
+        <p>Filter on fields like <code style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent);">event.action</code> and <code style="font-family: var(--mono); font-size: 0.8rem; color: var(--accent);">source.ip</code>. Learn the basics before your first shift.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.elastic.co/guide/en/kibana/current/kuery-query.html" target="_blank">→ KQL Query Language Docs</a></p>
+      </div>
+      <div class="card">
+        <h3>Alerts & Rules</h3>
+        <p>SOC leads manage detection rules; analysts review and triage the results in Kibana's alerting layer.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.elastic.co/guide/en/kibana/current/alerting-getting-started.html" target="_blank">→ Alerting Docs</a></p>
+      </div>
+    </div>
+    <div class="callout mt-3">
+      <p><strong>Tip:</strong> When you find an interesting event in Discover, use the <strong>surrounding documents</strong> feature to see what was happening before and after — context is everything in triage.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 04 — Threat Intelligence</p>
+    <h2>OTX Navigation</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem; max-width: 680px;">
+      AlienVault OTX is our threat intelligence platform. Use it to look up IPs, domains, and hashes
+      seen in our logs to understand whether they're associated with known threat actors.
+    </p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Indicator Lookup</h3>
+        <p>Paste any IP, domain, or file hash into OTX's search bar to get reputation data and community reports.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://otx.alienvault.com" target="_blank">→ OTX Portal</a></p>
+      </div>
+      <div class="card">
+        <h3>Pulses</h3>
+        <p>Community-curated indicator collections linked to specific threats. Subscribe to stay current on new IOCs.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://otx.alienvault.com/browse/pulses" target="_blank">→ Browse Pulses</a></p>
+      </div>
+      <div class="card">
+        <h3>API Integration</h3>
+        <p>OTX's REST API can be queried from scripts for automated indicator enrichment during investigations.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://otx.alienvault.com/api" target="_blank">→ OTX API Docs</a></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <div class="callout">
+    <p>
+      <strong>Ready for more?</strong> Explore <a href="../tools/index.html">Tools</a>
+      for the full analyst toolkit, or head to <a href="../ticketing/index.html">Ticketing</a>
+      to learn how to write your first incident ticket.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Cybercave SOC &mdash; <a href="../index.html">Home</a> &mdash; Built by students, for students.</p>
+</footer>
+
+</body>
+</html>
