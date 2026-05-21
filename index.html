@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybercave SOC — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="getting-started/index.html">Getting Started</a></li>
+    <li><a href="tools/index.html">Tools</a></li>
+    <li><a href="ticketing/index.html">Ticketing</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">// University Cybersecurity Operations Center</p>
+  <h1>
+    <span class="dim">Defend.</span> Detect.<br>
+    <span class="highlight">Respond.</span>
+  </h1>
+  <p class="hero-sub">
+    The Cybercave Security Operations Center is a student-led cyber defense program
+    protecting university infrastructure while training the next generation of security professionals.
+  </p>
+  <div class="hero-grid">
+    <div class="hero-stat">
+      <span class="num">24/7</span>
+      <span class="label">Monitoring</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">ELK</span>
+      <span class="label">SIEM Platform</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">PA</span>
+      <span class="label">Threat Logs</span>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrapper">
+
+  <!-- MISSION -->
+  <section>
+    <p class="section-label">// 01 — Mission</p>
+    <h2>Who We Are</h2>
+    <p style="color: var(--text2); max-width: 760px; margin-bottom: 1.25rem;">
+      The Cybercave Security Operations Center (SOC) is a hands-on, student-operated security program
+      housed within the university's cyber range. Our mission is twofold: to provide real cybersecurity
+      monitoring and incident response for our campus network, and to equip students with the
+      practical skills, frameworks, and tooling used by professional security teams in the field.
+    </p>
+    <p style="color: var(--text2); max-width: 760px; margin-bottom: 1.25rem;">
+      Operating under faculty supervision and aligned with industry frameworks like MITRE ATT&CK
+      and NIST, the Cybercave SOC bridges the gap between classroom theory and real-world security work.
+      Analysts here don't just study threats — they monitor live telemetry, triage alerts, write tickets,
+      and practice the full incident response lifecycle inside a controlled but realistic environment.
+    </p>
+    <p style="color: var(--text2); max-width: 760px;">
+      Whether you're a first-semester student learning what a SIEM is, or an advanced practitioner
+      building detection rules, the Cybercave SOC has a role for you.
+    </p>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ARCHITECTURE -->
+  <section>
+    <p class="section-label">// 02 — Architecture</p>
+    <h2>Our Current Stack</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem;">
+      Log data flows from network edge devices through our SIEM pipeline, surfacing as searchable
+      events and actionable alerts for analysts.
+    </p>
+
+    <div class="arch-block">
+      <div class="arch-flow">
+        <div class="arch-node">
+          <div class="node-label">Palo Alto NGFW</div>
+          <div class="node-sub">Threat · Traffic · URL logs</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="node-label">Logstash</div>
+          <div class="node-sub">Parse · Filter · Enrich</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="node-label">Elasticsearch</div>
+          <div class="node-sub">Index · Store · Search</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="node-label">Kibana</div>
+          <div class="node-sub">Dashboards · Alerts · Hunt</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node" style="border-color: var(--accent); background: var(--accent-glow);">
+          <div class="node-label" style="color: var(--accent);">Google Form</div>
+          <div class="node-sub">Incident Tickets</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🛡</div>
+        <h3>Palo Alto Firewall</h3>
+        <p>
+          Our next-generation firewall is the primary telemetry source. It generates threat logs,
+          traffic logs, and URL filtering events that flow into the ELK pipeline. The PA platform
+          provides app-ID, user-ID, and content-ID visibility that makes our log data rich
+          and actionable.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📦</div>
+        <h3>ELK Stack (SIEM)</h3>
+        <p>
+          Elasticsearch, Logstash, and Kibana form the core of our SIEM. Logstash ingests and
+          normalizes PA logs, Elasticsearch indexes and stores them for fast search, and Kibana
+          provides the analyst-facing dashboard, search interface, and alerting layer. Accessible
+          through the campus cyber range.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Google Forms Ticketing</h3>
+        <p>
+          When an analyst identifies a potential incident or notable event, they submit a structured
+          ticket through our Google Form. This creates a traceable record of the event, the analyst's
+          observations, evidence collected, and recommended next steps — the foundation of
+          professional SOC documentation.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔭</div>
+        <h3>OTX Threat Intelligence</h3>
+        <p>
+          AlienVault OTX (Open Threat Exchange) provides community-sourced threat intelligence —
+          IP reputation data, malware hashes, domain blocklists, and attack indicators that analysts
+          use to enrich and contextualize alerts seen in the ELK dashboard.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- THE PROBLEM WE SOLVE -->
+  <section>
+    <p class="section-label">// 03 — Value & Impact</p>
+    <h2>What the Cybercave SOC Solves</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🏫</div>
+        <h3>For the University</h3>
+        <p>
+          University networks are high-value targets — thousands of users, open research environments,
+          and sensitive student and institutional data make campuses attractive to threat actors.
+          The Cybercave SOC provides an additional layer of visibility and detection coverage on
+          top of existing IT security, specifically monitoring the threat logs that the Palo Alto
+          firewall generates. We help identify patterns, suspicious activity, and potential policy
+          violations that might otherwise go unnoticed in the daily noise of a busy network.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>For Students</h3>
+        <p>
+          No lab simulation matches the experience of working with real telemetry. SOC analysts
+          at Cybercave gain hands-on experience with enterprise-grade security tools — ELK, Palo Alto,
+          OTX — and practice the full analyst workflow: detecting, investigating, documenting, and
+          escalating incidents. Participants leave with skills, documented experience, and a portfolio
+          of real work directly applicable to SOC analyst, threat intelligence, and incident response roles.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏘</div>
+        <h3>For the Community</h3>
+        <p>
+          As the Cybercave SOC matures, we aim to extend its reach beyond the campus boundary.
+          Local small businesses, nonprofits, and municipal organizations often have no dedicated
+          security staff and no visibility into their own network threats. Future program goals include
+          community outreach, shared threat intelligence, and security awareness resources that help
+          the broader region defend against the same threats we monitor every day.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Building Real Processes</h3>
+        <p>
+          Beyond detection, the SOC builds the operational muscle that makes security programs work:
+          structured ticket writing, escalation procedures, after-action reviews, and documentation
+          discipline. These are the skills that separate experienced analysts from novices —
+          and they can only be learned by doing. Every shift in the Cybercave SOC is a rep
+          toward professional-grade security operations.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout mt-4">
+      <p>
+        <strong>New to the SOC?</strong> Head to <a href="getting-started/index.html">Getting Started</a>
+        to learn what a SOC is, how to get access to the ELK environment, and what your first
+        shift looks like.
+      </p>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- QUICK LINKS -->
+  <section>
+    <p class="section-label">// 04 — Navigate</p>
+    <h2>Quick Links</h2>
+    <div class="card-grid">
+      <a href="getting-started/index.html" style="text-decoration: none;">
+        <div class="card" style="transition: border-color 0.2s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+          <h3 style="color: var(--accent);">→ Getting Started</h3>
+          <p>SOC fundamentals, ELK access, first-shift orientation.</p>
+        </div>
+      </a>
+      <a href="tools/index.html" style="text-decoration: none;">
+        <div class="card" style="transition: border-color 0.2s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+          <h3 style="color: var(--accent);">→ Tools</h3>
+          <p>ELK, OTX, threat detection resources, and references.</p>
+        </div>
+      </a>
+      <a href="ticketing/index.html" style="text-decoration: none;">
+        <div class="card" style="transition: border-color 0.2s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+          <h3 style="color: var(--accent);">→ Ticketing</h3>
+          <p>How to write and submit SOC incident tickets.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Cybercave SOC &mdash; <a href="https://github.com" target="_blank">GitHub</a> &mdash; Built by students, for students.</p>
+</footer>
+
+</body>
+</html>
