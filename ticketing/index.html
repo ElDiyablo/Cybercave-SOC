@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticketing — Cybercave SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../getting-started/index.html">Getting Started</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="index.html" class="active">Ticketing</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+
+<div class="page-wrapper">
+
+  <p class="section-label" style="margin-top: 1rem;">// Ticketing</p>
+  <h1 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 0.5rem;">Incident Ticket Workflow</h1>
+  <p class="text-muted" style="font-size: 1rem; margin-bottom: 3rem; max-width: 640px;">
+    Documentation is the most important thing an analyst produces. A great ticket turns an
+    observation into an actionable record — and it's what separates professional analysts
+    from amateurs.
+  </p>
+
+  <section>
+    <p class="section-label">// 01 — Why It Matters</p>
+    <h2>Why Good Tickets Matter</h2>
+    <p class="text-muted" style="max-width: 720px; margin-bottom: 1.25rem;">
+      When you detect a potential security event, your ticket is the single source of truth for
+      everyone who touches that case after you — the next analyst on shift, the SOC lead,
+      the instructor, or eventually a responder taking action. A bad ticket wastes everyone's
+      time. A good ticket accelerates the response, builds organizational trust, and creates
+      a paper trail that can be reviewed, learned from, and used in after-action reporting.
+    </p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">📎</div>
+        <h3>Evidence Chain</h3>
+        <p>A ticket preserves exactly what you saw, when you saw it, and what you did. This chain of evidence is critical if the event escalates.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Analyst Handoff</h3>
+        <p>Shifts change. A well-written ticket means the next person can pick up exactly where you left off without re-investigating from scratch.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Program Improvement</h3>
+        <p>Aggregated ticket data shows where threats are coming from and how analysts are developing — the raw material for improving the SOC.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 02 — Ticket Anatomy</p>
+    <h2>What Goes in a Ticket</h2>
+    <p class="text-muted" style="margin-bottom: 1.5rem; max-width: 680px;">
+      Every ticket should cover these six elements — think of them as the journalistic standard
+      applied to security: who, what, when, where, how, and so what.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Title &amp; Classification</h4>
+          <p>A concise one-line description including the threat category if known (e.g., "Suspicious outbound C2 traffic — 192.168.1.45 → 45.33.32.156"). Classify severity: Low / Medium / High / Critical.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Event Summary</h4>
+          <p>Two to four sentences describing what happened in plain language. Write for someone who hasn't seen the logs. What triggered your attention? What does the behavior suggest?</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Timeline &amp; Observables</h4>
+          <p>Key events with timestamps. Include source IP, destination IP, protocol, port, action (allowed/denied), and threat category labels from the PA log.</p>
+          <div class="terminal mt-2">
+            <span class="comment"># Example observable format</span><br>
+            <span class="prompt">2024-07-15 14:32:01 UTC</span> <span class="cmd">src=10.0.1.22 dst=185.220.101.5 proto=TCP dport=443 action=allow threat=C2</span><br>
+            <span class="prompt">2024-07-15 14:32:08 UTC</span> <span class="cmd">src=10.0.1.22 dst=185.220.101.5 proto=TCP dport=443 action=allow threat=C2</span><br>
+            <span class="comment"># Repeated beacon pattern — 7-second interval</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Indicator Enrichment</h4>
+          <p>Document OTX results, VirusTotal scores, AbuseIPDB reports, or WHOIS data for the IPs/domains/hashes involved. State clearly: known bad, or unknown/unverified?</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Analysis &amp; MITRE Mapping</h4>
+          <p>What does this behavior mean? Map to a MITRE ATT&CK technique if possible (e.g., T1071.001 — Application Layer Protocol: Web Protocols). Note your confidence level.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Recommended Action</h4>
+          <p>What should happen next? Block the IP? Escalate to SOC lead? Continue monitoring? False positive — no action? Be explicit. This drives the response.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 03 — Submission</p>
+    <h2>How to Submit a Ticket</h2>
+    <div class="callout" style="margin-bottom: 1.5rem;">
+      <p>
+        <strong>Tickets are submitted via Google Form.</strong> Fill out the form completely —
+        incomplete tickets make follow-up harder and reflect poorly on the shift record.
+        Every submission is logged and reviewed by SOC leads.
+      </p>
+    </div>
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <h3 style="color: var(--accent);">→ SOC Incident Ticket Form</h3>
+      <p style="margin-top: 0.5rem; margin-bottom: 1rem;">
+        Use this form to submit all incident tickets, notable event reports, and false positive
+        documentation during your shift.
+      </p>
+      <a href="#" style="display: inline-block; background: var(--accent-glow); border: 1px solid var(--border2); color: var(--accent); padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.9rem;">Open Ticket Form ↗</a>
+      <p style="color: var(--text3); font-size: 0.8rem; margin-top: 0.75rem;">← Replace the # href above with your actual Google Form URL.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 04 — Learn More</p>
+    <h2>Ticket Writing Resources</h2>
+    <ul class="resource-list">
+      <li>
+        <span class="res-icon">🎬</span>
+        <div>
+          <a href="https://www.youtube.com/watch?v=12ldaGyh7f0" target="_blank">SOC Ticket Writing — Video Tutorial</a>
+          <span class="res-desc">Walkthrough of professional SOC ticket writing practices. Covers structure, evidence documentation, and communication tone. Watch before your first shift.</span>
+        </div>
+      </li>
+      <li>
+        <span class="res-icon">📄</span>
+        <div>
+          <a href="https://www.antisyphontraining.com/wp-content/uploads/2026/03/How-to-Write-SOC-Tickets-That-Build-Trust-and-Drive-Action.pdf" target="_blank">Antisyphon — How to Write SOC Tickets That Build Trust and Drive Action (PDF)</a>
+          <span class="res-desc">Practitioner-written guide on crafting tickets that are clear, credible, and actionable. Covers what to include vs. omit and how ticket quality affects team trust.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 05 — Common Mistakes</p>
+    <h2>What to Avoid</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Mistake</th><th>Why It's a Problem</th><th>Better Approach</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name">Vague title</td>
+          <td class="text-muted text-sm">"Suspicious activity" tells the next analyst nothing.</td>
+          <td class="text-muted text-sm">Be specific: "Port scan from 10.0.1.88 targeting 22/23/80"</td>
+        </tr>
+        <tr>
+          <td class="tool-name">No timestamps</td>
+          <td class="text-muted text-sm">Without timestamps, you can't reconstruct the event order.</td>
+          <td class="text-muted text-sm">Always include UTC timestamps for every log entry cited.</td>
+        </tr>
+        <tr>
+          <td class="tool-name">Logs with no context</td>
+          <td class="text-muted text-sm">A wall of raw log lines without explanation is not an analysis.</td>
+          <td class="text-muted text-sm">Summarize what the logs show first, then paste supporting evidence.</td>
+        </tr>
+        <tr>
+          <td class="tool-name">Skipping enrichment</td>
+          <td class="text-muted text-sm">Flagging an IP without checking its reputation is incomplete triage.</td>
+          <td class="text-muted text-sm">Always check OTX/VirusTotal/AbuseIPDB before closing the investigation.</td>
+        </tr>
+        <tr>
+          <td class="tool-name">No recommended action</td>
+          <td class="text-muted text-sm">A ticket that doesn't say "what next" creates bottlenecks.</td>
+          <td class="text-muted text-sm">End every ticket with a clear recommendation, even if it's "no action — FP".</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  <p>Cybercave SOC &mdash; <a href="../index.html">Home</a> &mdash; Built by students, for students.</p>
+</footer>
+
+</body>
+</html>
