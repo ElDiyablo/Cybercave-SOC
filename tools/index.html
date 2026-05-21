@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools — Cybercave SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../getting-started/index.html">Getting Started</a></li>
+    <li><a href="index.html" class="active">Tools</a></li>
+    <li><a href="../ticketing/index.html">Ticketing</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+
+<div class="page-wrapper">
+
+  <p class="section-label" style="margin-top: 1rem;">// Tools</p>
+  <h1 style="font-size: 2.25rem; font-weight: 700; margin-bottom: 0.5rem;">SOC Analyst Toolkit</h1>
+  <p class="text-muted" style="font-size: 1rem; margin-bottom: 3rem; max-width: 640px;">
+    Tools used in CYS 650 and summer SOC operations — organized by analyst workflow phase.
+  </p>
+
+  <section>
+    <p class="section-label">// 01 — SIEM & Log Analysis</p>
+    <h2>Core Monitoring Platform</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Tool</th><th>Category</th><th>What We Use It For</th><th>Link</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name">Kibana</td>
+          <td><span class="badge badge-blue">SIEM</span></td>
+          <td class="text-muted text-sm">Primary analyst dashboard — search logs, visualize threat trends, triage alerts from PA firewall events.</td>
+          <td><a href="https://www.elastic.co/kibana" target="_blank">elastic.co</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">Elasticsearch</td>
+          <td><span class="badge badge-blue">SIEM</span></td>
+          <td class="text-muted text-sm">Backend index that powers Kibana searches. Understanding index patterns and field mappings helps with advanced queries.</td>
+          <td><a href="https://www.elastic.co/elasticsearch" target="_blank">elastic.co</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">Logstash</td>
+          <td><span class="badge badge-blue">SIEM</span></td>
+          <td class="text-muted text-sm">Ingestion pipeline — parses and normalizes raw Palo Alto syslog into structured ECS fields before indexing.</td>
+          <td><a href="https://www.elastic.co/logstash" target="_blank">elastic.co</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">Elastic Security</td>
+          <td><span class="badge badge-blue">Detection</span></td>
+          <td class="text-muted text-sm">Built-in SIEM features in Kibana — detection rules, alert management, case management, and timeline investigations.</td>
+          <td><a href="https://www.elastic.co/security" target="_blank">elastic.co</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 02 — Threat Intelligence</p>
+    <h2>Intel & Enrichment</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Tool</th><th>Category</th><th>What We Use It For</th><th>Link</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name">AlienVault OTX</td>
+          <td><span class="badge badge-amber">Threat Intel</span></td>
+          <td class="text-muted text-sm">IP/domain/hash reputation lookups, community pulse subscriptions, indicator enrichment during triage.</td>
+          <td><a href="https://otx.alienvault.com" target="_blank">otx.alienvault.com</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">VirusTotal</td>
+          <td><span class="badge badge-amber">Threat Intel</span></td>
+          <td class="text-muted text-sm">File hash analysis, URL/domain scanning across 70+ AV engines. Cross-check suspicious indicators from PA logs.</td>
+          <td><a href="https://www.virustotal.com" target="_blank">virustotal.com</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">Shodan</td>
+          <td><span class="badge badge-amber">Recon</span></td>
+          <td class="text-muted text-sm">Internet-facing device search engine. Look up external IPs from alerts to understand what's exposed.</td>
+          <td><a href="https://www.shodan.io" target="_blank">shodan.io</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">AbuseIPDB</td>
+          <td><span class="badge badge-amber">Threat Intel</span></td>
+          <td class="text-muted text-sm">Community-reported IP abuse database. Quick check to see if source IPs in your alerts are known bad actors.</td>
+          <td><a href="https://www.abuseipdb.com" target="_blank">abuseipdb.com</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">MXToolbox</td>
+          <td><span class="badge badge-amber">Threat Intel</span></td>
+          <td class="text-muted text-sm">DNS lookups, blacklist checks, email header analysis. Useful when investigating phishing or DNS-based threats.</td>
+          <td><a href="https://mxtoolbox.com" target="_blank">mxtoolbox.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 03 — Detection & Frameworks</p>
+    <h2>Detection Engineering &amp; References</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>MITRE ATT&CK</h3>
+        <p>The definitive knowledge base of adversary tactics, techniques, and procedures. Map log observations to known attacker behavior and attack stages.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://attack.mitre.org" target="_blank">→ attack.mitre.org</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Awesome Threat Detection</h3>
+        <p>Curated GitHub list of tools, papers, and resources for threat detection and hunting — rule repositories, analytics frameworks, and playbooks.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://github.com/0x4D31/awesome-threat-detection" target="_blank">→ GitHub: 0x4D31/awesome-threat-detection</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📐</div>
+        <h3>Sigma Rules</h3>
+        <p>Generic detection rule format convertible to KQL, Splunk SPL, and other SIEM languages. Pre-built detection logic for common attack patterns.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://github.com/SigmaHQ/sigma" target="_blank">→ GitHub: SigmaHQ/sigma</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🗺</div>
+        <h3>MITRE D3FEND</h3>
+        <p>Defensive counterpart to ATT&CK — a knowledge graph of cybersecurity countermeasures mapped to offensive techniques.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://d3fend.mitre.org" target="_blank">→ d3fend.mitre.org</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>MITRE CAR</h3>
+        <p>Cyber Analytics Repository — detection analytics mapped directly to ATT&CK techniques with pseudocode adaptable to KQL queries.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://car.mitre.org" target="_blank">→ car.mitre.org</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>NIST Cybersecurity Framework</h3>
+        <p>The five functions — Identify, Protect, Detect, Respond, Recover — provide the structural vocabulary for SOC operations.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.nist.gov/cyberframework" target="_blank">→ nist.gov/cyberframework</a></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 04 — Network & Investigation</p>
+    <h2>Network Analysis &amp; Investigation</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Tool</th><th>Category</th><th>Use Case</th><th>Link</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name">Wireshark</td>
+          <td><span class="badge badge-green">Network</span></td>
+          <td class="text-muted text-sm">Packet-level analysis. Inspect PCAP evidence, decode protocols, follow TCP streams during deeper investigations.</td>
+          <td><a href="https://www.wireshark.org" target="_blank">wireshark.org</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">NetworkMiner</td>
+          <td><span class="badge badge-green">Network</span></td>
+          <td class="text-muted text-sm">Passive network forensics — extracts hosts, credentials, and files from PCAP without deep protocol knowledge.</td>
+          <td><a href="https://www.netresec.com/?page=NetworkMiner" target="_blank">netresec.com</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">CyberChef</td>
+          <td><span class="badge badge-green">Analysis</span></td>
+          <td class="text-muted text-sm">Browser-based data transformation — decode base64, analyze obfuscated payloads, parse hex, extract IOCs.</td>
+          <td><a href="https://gchq.github.io/CyberChef/" target="_blank">gchq.github.io</a></td>
+        </tr>
+        <tr>
+          <td class="tool-name">WHOIS / DomainTools</td>
+          <td><span class="badge badge-green">Recon</span></td>
+          <td class="text-muted text-sm">Domain registration history, registrant data, and hosting provider info for suspicious domains in PA logs.</td>
+          <td><a href="https://www.domaintools.com" target="_blank">domaintools.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 05 — Training & Practice</p>
+    <h2>Skill Development</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🏋️</div>
+        <h3>Blue Team Labs Online</h3>
+        <p>Hands-on blue team challenges — SIEM analysis, PCAP investigation, log analysis, threat hunting. Free tier available.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://blueteamlabs.online" target="_blank">→ blueteamlabs.online</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>LetsDefend</h3>
+        <p>SOC analyst simulation platform with realistic alert triage scenarios and SIEM-like interface. Used in CYS 650.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://letsdefend.io" target="_blank">→ letsdefend.io</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔬</div>
+        <h3>TryHackMe — SOC Level 1</h3>
+        <p>Structured learning path covering traffic analysis, SIEM tools, digital forensics, and incident response.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://tryhackme.com/path/outline/soclevel1" target="_blank">→ tryhackme.com</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Antisyphon Training</h3>
+        <p>Pay-what-you-can cybersecurity training from working practitioners. Many courses free or low cost.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://www.antisyphontraining.com" target="_blank">→ antisyphontraining.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <div class="callout">
+    <p>
+      <strong>Missing a tool?</strong> If you used something in CYS 650 or during summer ops
+      that isn't listed here, open a pull request or reach out to the SOC lead to get it added.
+      This page is a living document.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Cybercave SOC &mdash; <a href="../index.html">Home</a> &mdash; Built by students, for students.</p>
+</footer>
+
+</body>
+</html>
