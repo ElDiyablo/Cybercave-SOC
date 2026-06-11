@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — Cybercave SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand"><span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about/index.html">About</a></li>
+    <li><a href="../getting-started/index.html">Getting Started</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="index.html" class="active">Resources</a></li>
+    <li><a href="../ticketing/index.html">Ticketing</a></li>
+    <li><a href="../blog/index.html">Blog</a></li>
+    <li><a href="../careers/index.html">Join Us</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+
+<div class="page-wrapper">
+
+  <p class="section-label" style="margin-top:1rem;">// Resources</p>
+  <h1 style="font-size:2.25rem;font-weight:700;margin-bottom:0.5rem;">Student Security Resources</h1>
+  <p class="text-muted" style="font-size:1rem;margin-bottom:3rem;max-width:640px;">Practical guides to help every student stay safer online — from spotting phishing emails to locking down your accounts.</p>
+
+  <section>
+    <p class="section-label">// 01 — Phishing</p>
+    <h2>How to Spot a Phish</h2>
+    <p class="text-muted" style="max-width:720px; margin-bottom:1.5rem;">Phishing is the #1 attack vector against universities. Attackers impersonate IT departments, financial aid offices, professors, and popular services to steal credentials or install malware.</p>
+
+    <div class="callout callout-red">
+      <p><strong>🚨 If you clicked a suspicious link or entered credentials:</strong> Change your password immediately and report it to the SOC using the <a href="../index.html#incident-reporting">incident form</a>. Don't wait.</p>
+    </div>
+
+    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Red Flags to Watch For</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">📧</div>
+        <h3>Suspicious Sender</h3>
+        <p>The display name says "IT Help Desk" but the actual email address is <code style="font-family:var(--mono);color:var(--red);font-size:0.8rem;">support@random-domain.com</code>. Always check the full address, not just the name.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Urgent / Threatening Language</h3>
+        <p>"Your account will be deleted in 24 hours." Urgency is designed to short-circuit your critical thinking. Slow down.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔗</div>
+        <h3>Suspicious Links</h3>
+        <p>Hover over any link before clicking. Watch for subtle misspellings: <code style="font-family:var(--mono);color:var(--red);font-size:0.8rem;">msu-edu.login.com</code> is not your university.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📎</div>
+        <h3>Unexpected Attachments</h3>
+        <p>Unexpected Word docs, PDFs, or ZIP files — especially from unknown senders. Malware is frequently delivered as "invoices" or "shared documents."</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔑</div>
+        <h3>Credential Requests</h3>
+        <p>Legitimate university IT will never ask for your password via email. Ever. If a page is asking for your login after clicking an email link, close it immediately.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎁</div>
+        <h3>Too Good to Be True</h3>
+        <p>"You've been selected for a $500 gift card." These are especially common during financial aid season. If it sounds too good — it's a lure.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Common Campus Phishing Themes</h3>
+    <table class="data-table">
+      <thead><tr><th>Lure Type</th><th>What It Claims</th><th>What It Actually Does</th></tr></thead>
+      <tbody>
+        <tr><td class="tool-name">Financial Aid Phish</td><td class="text-muted text-sm">"Your FAFSA needs verification — log in now"</td><td class="text-muted text-sm">Steals university login credentials</td></tr>
+        <tr><td class="tool-name">IT Helpdesk Phish</td><td class="text-muted text-sm">"Your email storage is full — click to expand"</td><td class="text-muted text-sm">Harvests email credentials or installs malware</td></tr>
+        <tr><td class="tool-name">Professor Impersonation</td><td class="text-muted text-sm">"Hey, I need you to buy gift cards for class supplies"</td><td class="text-muted text-sm">Gift card fraud / financial theft</td></tr>
+        <tr><td class="tool-name">Job Offer Scam</td><td class="text-muted text-sm">"Easy remote job — $25/hr, just fill out this form"</td><td class="text-muted text-sm">Identity theft / check cashing fraud</td></tr>
+        <tr><td class="tool-name">Package Notification</td><td class="text-muted text-sm">"Your package couldn't be delivered — verify address"</td><td class="text-muted text-sm">Credential theft / credit card fraud</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout mt-3">
+      <p><strong>When in doubt, don't click.</strong> Go directly to the official website by typing the URL manually. Report suspicious emails to <a href="../index.html#incident-reporting">the SOC</a>.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section>
+    <p class="section-label">// 02 — Passwords</p>
+    <h2>Password Management</h2>
+    <p class="text-muted" style="max-width:720px; margin-bottom:1.5rem;">Weak and reused passwords are responsible for a massive percentage of account takeovers. Here's how to fix that permanently.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>Use a Password Manager</h3>
+        <p>Generates and stores a unique, complex password for every account. You only remember one strong master password. This is the single highest-impact thing you can do for your security.</p>
+        <p style="margin-top:0.75rem; font-size:0.85rem; color:var(--text3);">Recommended: Bitwarden (free), 1Password, KeePassXC</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>Enable MFA Everywhere</h3>
+        <p>Multi-factor authentication means an attacker needs your password AND your phone. Enable it on your university account, email, and any important service. Use an authenticator app over SMS.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎲</div>
+        <h3>Strong Passphrases</h3>
+        <p>For anything you type manually, use
