@@ -1,0 +1,83 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate HTML & Check Links
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for broken internal links
+        run: |
+          echo "Checking internal links..."
+          errors=0
+          while IFS= read -r file; do
+            dir=$(dirname "$file")
+            while IFS= read -r link; do
+              if [[ "$link" == http* ]] || [[ "$link" == "#"* ]] || [[ -z "$link" ]]; then
+                continue
+              fi
+              target="$dir/$link"
+              target=$(realpath --relative-to=. "$target" 2>/dev/null || echo "$target")
+              if [ ! -f "$target" ] && [ ! -d "$target" ]; then
+                echo "BROKEN LINK in $file: $link -> $target"
+                errors=$((errors+1))
+              fi
+            done < <(grep -oP '(?<=href=")[^"]+|(?<=src=")[^"]+' "$file" 2>/dev/null | grep -v '^http' | grep -v '^#' | grep -v '^mailto' || true)
+          done < <(find . -name "*.html" -not -path "./.git/*")
+          if [ $errors -gt 0 ]; then
+            echo "Found $errors broken link(s). Fix before merging."
+            exit 1
+          fi
+          echo "All internal links OK."
+
+      - name: Check for exposed secrets
+        run: |
+          echo "Scanning for exposed secrets..."
+          if grep -rn --include="*.html" --include="*.js" --include="*.css" \
+            -E "(password|api_key|secret|token)\s*=\s*['\"][^'\"]{8,}" . \
+            --exclude-dir=.git 2>/dev/null | grep -v "placeholder\|example\|YOUR_"; then
+            echo "WARNING: Possible exposed secrets found. Review before deploying."
+          else
+            echo "No obvious secrets detected."
+          fi
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    name: Deploy Site
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
