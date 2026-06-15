@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Aid Phishing Advisory — Cybercave SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand"><span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about/index.html">About</a></li>
+    <li><a href="../getting-started/index.html">Getting Started</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="../resources/index.html">Resources</a></li>
+    <li><a href="../ticketing/index.html">Ticketing</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="../careers/index.html">Join Us</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+<div class="page-wrapper" style="max-width: 800px;">
+  <a href="index.html" style="font-family: var(--mono); font-size: 0.8rem; color: var(--text3); text-decoration: none;">← Back to Blog</a>
+  <div style="margin-top: 1.5rem; margin-bottom: 0.75rem; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+    <span class="badge badge-red">Advisory</span>
+    <span style="font-family: var(--mono); font-size: 0.75rem; color: var(--text3);">June 2026 &mdash; Cybercave SOC Team</span>
+  </div>
+  <h1 style="font-size: 1.85rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">⚠ Active Campaign: Financial Aid Phishing Targeting MSU Students</h1>
+
+  <div class="callout callout-red">
+    <p><strong>Action Required:</strong> If you received a suspicious financial aid email and clicked the link or entered credentials, change your university password immediately and <a href="../index.html#incident-reporting">report it to the SOC</a>.</p>
+  </div>
+
+  <h3 style="margin-top: 2rem;">Summary</h3>
+  <p class="text-muted" style="margin-top: 0.5rem;">The Cybercave SOC has identified an active phishing campaign targeting MSU students. Attackers are sending emails impersonating the Financial Aid office, claiming that recipients must verify their FAFSA information or risk losing aid disbursements. The emails direct victims to a convincing but fraudulent login page designed to harvest university credentials.</p>
+
+  <h3 style="margin-top: 1.5rem;">Indicators of Compromise</h3>
+  <div class="terminal" style="margin-top: 0.75rem;">
+    <span class="comment"># Sender domains observed (not legitimate MSU domains)</span><br>
+    <span class="cmd">financialaid-msu-verify.com</span><br>
+    <span class="cmd">msu-studentaid.net</span><br><br>
+    <span class="comment"># Subject lines observed</span><br>
+    <span class="cmd">"[URGENT] FAFSA Verification Required — Aid Hold Applied"</span><br>
+    <span class="cmd">"Action Required: Financial Aid Disbursement Verification"</span>
+  </div>
+
+  <h3 style="margin-top: 1.5rem;">What to Do</h3>
+  <div class="steps" style="margin-top: 1rem;">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Do not click links in the email</h4><p>Go directly to the official financial aid portal by typing the URL manually in your browser.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Report the email</h4><p>Forward suspicious emails to the SOC via the <a href="../index.html#incident-reporting">incident form</a> and to university IT.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>If you clicked: change your password now</h4><p>Go to your university account settings and change your password. Enable MFA if you haven't already.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check for unauthorized access</h4><p>Review your account's recent login history for any unfamiliar locations or devices.</p></div></div>
+  </div>
+
+  <h3 style="margin-top: 1.5rem;">MITRE ATT&CK Mapping</h3>
+  <table class="data-table" style="margin-top: 0.75rem;">
+    <thead><tr><th>Technique</th><th>ID</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="tool-name">Phishing</td><td class="text-muted text-sm">T1566.002</td><td class="text-muted text-sm">Spearphishing link via email</td></tr>
+      <tr><td class="tool-name">Credential Access</td><td class="text-muted text-sm">T1056</td><td class="text-muted text-sm">Input capture via fake login page</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+    <a href="index.html" style="font-family: var(--mono); font-size: 0.8rem; color: var(--text3); text-decoration: none;">← Back to Blog</a>
+  </div>
+</div>
+<footer><p>Cybercave SOC &mdash; <a href="https://github.com/ElDiyablo/Cybercave-SOC" target="_blank">GitHub</a> &mdash; Built by students, for students &mdash; MSU</p></footer>
+</body>
+</html>
