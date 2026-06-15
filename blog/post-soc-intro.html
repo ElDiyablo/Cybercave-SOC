@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducing the Site — Cybercave SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand"><span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about/index.html">About</a></li>
+    <li><a href="../getting-started/index.html">Getting Started</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="../resources/index.html">Resources</a></li>
+    <li><a href="../ticketing/index.html">Ticketing</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="../careers/index.html">Join Us</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+<div class="page-wrapper" style="max-width: 800px;">
+  <a href="index.html" style="font-family: var(--mono); font-size: 0.8rem; color: var(--text3); text-decoration: none;">← Back to Blog</a>
+  <div style="margin-top: 1.5rem; margin-bottom: 0.75rem; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+    <span class="badge badge-blue">SOC Update</span>
+    <span style="font-family: var(--mono); font-size: 0.75rem; color: var(--text3);">April 2026 &mdash; ElDiyablo</span>
+  </div>
+  <h1 style="font-size: 1.85rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">Introducing the Cybercave SOC Documentation Site</h1>
+
+  <p class="text-muted" style="margin-top: 0.5rem;">For a while now, Cybercave SOC knowledge has lived scattered across Canvas pages, shared drives, and Discord threads. That works fine when you're the one who wrote it — it works a lot less well for the next analyst trying to find it. So we built something better: a centralized, public documentation site for the SOC, hosted right alongside the code that runs it.</p>
+
+  <h3 style="margin-top: 1.5rem;">What's on the Site</h3>
+  <div class="card-grid" style="margin-top: 1rem;">
+    <div class="card">
+      <div class="card-icon">🚀</div>
+      <h3>Getting Started</h3>
+      <p>Everything a new analyst needs before their first shift — what a SOC is, how to access ELK through the cyber range, and how to navigate Kibana and OTX.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛠</div>
+      <h3>Tools</h3>
+      <p>The full analyst toolkit organized by workflow phase — SIEM, threat intel enrichment, detection frameworks, and training platforms.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>Ticketing</h3>
+      <p>How to write tickets that actually help the next person — structure, evidence, enrichment, and recommended actions.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <h3>Resources</h3>
+      <p>Security guidance for the whole student body — phishing red flags, password management, and everyday security habits.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 1.5rem;">Why It's on GitHub Pages</h3>
+  <p class="text-muted" style="margin-top: 0.5rem;">Hosting this on GitHub keeps it close to the code and tools we already use, makes it easy for any analyst to contribute via pull request, and gives us version history for free — every change to our processes is tracked. It also means the site is publicly accessible, which fits our values around transparency: there's nothing here that needs to be hidden, and sharing it openly helps other student SOC programs get off the ground faster.</p>
+
+  <h3 style="margin-top: 1.5rem;">What's Next</h3>
+  <p class="text-muted" style="margin-top: 0.5rem;">This is a living site. Coming up: automated deployment via GitHub Actions, a security audit and SECURITY.md policy, and a full user guide so any analyst — not just the person who built it — can update content with confidence. If you're a SOC analyst and want to contribute a guide, tool writeup, or advisory, see the <a href="index.html">Blog template</a> and open a pull request.</p>
+
+  <div class="callout mt-3">
+    <p><strong>Have feedback?</strong> This site exists for analysts and students. If something's missing, unclear, or broken, let the SOC lead know — or better yet, fix it and submit a PR.</p>
+  </div>
+
+  <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+    <a href="index.html" style="font-family: var(--mono); font-size: 0.8rem; color: var(--text3); text-decoration: none;">← Back to Blog</a>
+  </div>
+</div>
+<footer><p>Cybercave SOC &mdash; <a href="https://github.com/ElDiyablo/Cybercave-SOC" target="_blank">GitHub</a> &mdash; Built by students, for students &mdash; MSU</p></footer>
+</body>
+</html>
