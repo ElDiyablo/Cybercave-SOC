@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Cybercave SOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand"><span class="bracket">[</span>CyberCave<span class="bracket">]</span> SOC</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about/index.html">About</a></li>
+    <li><a href="../getting-started/index.html">Getting Started</a></li>
+    <li><a href="../tools/index.html">Tools</a></li>
+    <li><a href="../resources/index.html">Resources</a></li>
+    <li><a href="../ticketing/index.html">Ticketing</a></li>
+    <li><a href="index.html" class="active">Blog</a></li>
+    <li><a href="../careers/index.html">Join Us</a></li>
+  </ul>
+  <span class="nav-status">SOC Active</span>
+</nav>
+
+<div class="page-wrapper">
+
+  <p class="section-label" style="margin-top:1rem;">// Blog & Advisories</p>
+  <h1 style="font-size:2.25rem;font-weight:700;margin-bottom:0.5rem;">Security Advisories & SOC Writeups</h1>
+  <p class="text-muted" style="font-size:1rem;margin-bottom:3rem;max-width:640px;">Threat advisories, phishing campaign alerts, and after-action writeups from SOC operations. Updated by analysts each shift.</p>
+
+  <div class="callout" style="margin-bottom: 2rem;">
+    <p><strong>SOC Analysts:</strong> To add a post, create a new HTML file in the <code style="font-family:var(--mono);font-size:0.85rem;">blog/</code> folder following the template below, then add a card linking to it on this page.</p>
+  </div>
+
+  <section>
+    <p class="section-label">// Latest Posts</p>
+    <h2>Recent Advisories</h2>
+
+    <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+
+      <a href="post-financial-aid-phishing.html" class="blog-card">
+        <div class="blog-meta">
+          <span>📅 June 2026</span>
+          <span><span class="badge badge-red">Advisory</span></span>
+          <span>By SOC Team</span>
+        </div>
+        <h3>⚠ Active Campaign: Financial Aid Phishing Targeting MSU Students</h3>
+        <p>The SOC has observed an increase in phishing emails impersonating the Financial Aid office. Emails claim FAFSA verification is required and direct victims to a credential-harvesting page. All students should verify any financial aid communications directly through the official portal.</p>
+        <span class="read-more">Read full advisory →</span>
+      </a>
+
+      <a href="post-password-spray.html" class="blog-card">
+        <div class="blog-meta">
+          <span>📅 May 2026</span>
+          <span><span class="badge badge-amber">Threat Report</span></span>
+          <span>By SOC Team</span>
+        </div>
+        <h3>Password Spray Activity Detected on Campus VPN</h3>
+        <p>SOC analysts identified a low-and-slow password spray attack against campus VPN authentication endpoints. The attack originated from multiple external IPs and targeted common usernames. No successful logins were confirmed. Detection rule deployed and IPs blocked at the perimeter.</p>
+        <span class="read-more">Read full report →</span>
+      </a>
+
+      <a href="post-soc-intro.html" class="blog-card">
+        <div class="blog-meta">
+          <span>📅 April 2026</span>
+          <span><span class="badge badge-blue">SOC
