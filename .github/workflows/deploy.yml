@@ -1,0 +1,68 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate & Check Secrets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for exposed secrets
+        run: |
+          echo "Scanning for exposed secrets..."
+          if grep -rn --include="*.html" --include="*.js" --include="*.css" \
+            -E "(password|api_key|secret|token)\s*=\s*['\"][^'\"]{8,}" . \
+            --exclude-dir=.git 2>/dev/null | grep -v "placeholder\|example\|YOUR_\|#\|//"; then
+            echo "WARNING: Possible exposed secrets found."
+            exit 1
+          else
+            echo "No secrets detected. All clear."
+          fi
+
+      - name: Check for placeholder text
+        run: |
+          echo "Checking for unfilled placeholders..."
+          warnings=0
+          if grep -rn --include="*.html" "Your Name Here\|range-ip\|href=\"#\"" . --exclude-dir=.git 2>/dev/null; then
+            echo "WARNING: Placeholder text still present. Update before launch."
+            warnings=$((warnings+1))
+          fi
+          echo "Placeholder check complete — $warnings warning(s) found."
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    name: Deploy Site
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
